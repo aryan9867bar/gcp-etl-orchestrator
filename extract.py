@@ -16,15 +16,15 @@ password_characters = string.ascii_letters + string.digits + 'm'
 # Generate employee data and save it to a CSV file
 with open('employee_data.csv', mode='w', newline='') as file:
     fieldnames = ['first_name', 'last_name', 'job_title', 'department', 'email', 'address', 'phone_number', 'salary', 'password']
-    writer = csv.DictWriter(file, fieldnames=fieldnames)
+    writer = csv.DictWriter(file, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
 
     writer.writeheader()
     for _ in range(num_employees):
         writer.writerow({
             "first_name": fake.first_name(),
             "last_name": fake.last_name(),
-            "job_title": fake.job(),
-            "department": fake.job(),  # Generate department-like data using the job() method
+            "job_title": fake.job().replace(",", " -"),
+            "department": fake.job().replace(",", " -"),  # Generate department-like data using the job() method
             "email": fake.email(),
             "address": fake.city(),
             "phone_number": fake.phone_number(),
