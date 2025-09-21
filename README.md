@@ -8,6 +8,9 @@ Problem Statement
 It is tasked with creating a data pipeline to extract employee data from various sources, mask sensitive information within the data, and load it into BigQuery. Additionally, a dashboard must be developed to visualize employee data securely.
 
 
+![alt text](techstack.png)
+
+
 Requirements:
 
 • Data Extraction: Extract employee data from multiple sources such as databases, CSV files, or APIs.
@@ -33,6 +36,7 @@ Orchestration: Automate complete Data pipeline using Airflow ( Cloud Composer )
 
 
 Architecture
+
 ![alt text](employee.png)
 
 
