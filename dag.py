@@ -3,6 +3,7 @@ from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
 from airflow.utils.dates import days_ago
 from airflow.providers.google.cloud.operators.datafusion import CloudDataFusionStartPipelineOperator
+
 default_args = {
     'owner': 'airflow',
     'start_date': datetime(2023, 12, 18),
@@ -28,7 +29,7 @@ with dag:
 
     start_pipeline = CloudDataFusionStartPipelineOperator(
     location="us-central1",
-    pipeline_name="etl-pipeline",
+    pipeline_name="gcp-etl-orchestrator",
     instance_name="datafusion-dev",
     task_id="start_datafusion_pipeline",
     )
